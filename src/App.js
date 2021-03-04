@@ -8,9 +8,13 @@ const api = axios.create({
 
 class App extends Component {
 
+    state = {
+        pages: []
+    }
+
     constructor(){
         super();
-        api.get('/').then(res => {
+        api.get('/api/ResponsivePages').then(res => {
             console.log(res.data)
         })
     }
