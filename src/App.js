@@ -1,6 +1,9 @@
 import React, {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import MediaCard from './MediaCard'
+import {Container,Row, Col} from 'react-bootstrap'
+import { ThreeSixty } from "@material-ui/icons";
 
 const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
@@ -21,7 +24,10 @@ class App extends Component {
     getPages = async () => {
         let data = await api.get('/api/ResponsivePages').then(({ data }) => data);
         
-        this.setState({ pages: data})
+        this.setState({ 
+            pages: data,
+            count: data.length
+        })
     }
 
     render(){
@@ -30,17 +36,24 @@ class App extends Component {
 
                 {this.state.pages.map( pages =>  { return (
                     <div>
-                        <MediaCard 
-                        title = {pages.title} 
-                        description = {pages.description} 
-                        published = {pages.publishedOn} 
-                        type = {pages.type} 
-                        active = {pages.isActive} 
-                        />
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <MediaCard 
+                                        key = {pages.id}
+                                        title = {pages.title} 
+                                        description = {pages.description} 
+                                        published = {pages.publishedOn} 
+                                        type = {pages.type} 
+                                        active = {pages.isActive} 
+                                    />
+                                </Col>
+                            </Row>
+                        </Container>
                     </div>
                 )}
                 
-                )}
+            )}
                 
 
             </div>
