@@ -21,7 +21,7 @@ class Create extends Component {
             title: '',
             description: '',
             type: 0,
-            isActive: true,
+            isActive: false,
             published: moment(Date()).format()
 
         } 
@@ -131,6 +131,7 @@ class Create extends Component {
                                         id="formHorizontalRadios2"
                                         style={{marginLeft:15,marginRight: 15}}
                                         onChange={e => this.handleChange(e)}
+                                        checked
                                     />
                                 </Row>
                             
