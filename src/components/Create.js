@@ -42,35 +42,7 @@ class Create extends Component {
     
         console.log(this.state)
 
-        /**
-         * const page = {
-          title: this.state.title,
-          description: this.state.description,
-          type: 0,
-          isActive: 1,
-          publishedOn: Date().toLocaleString()
-        };
-        */
-
-        
-        
-        /**
-         * const page = {
-            title: "test 1",
-            description: "post test no2",
-            type: 0,
-            isActive: true,
-            publishedOn: "2021-03-05T10:09:19.8029347+00:00"
-          };
-    
-        api.post('api/ResponsivePages', { page })
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
-          })
-*/
-
-      }
+    }
     
     
 
@@ -82,7 +54,7 @@ class Create extends Component {
             <div>
                 <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Create New Page</h1>
                 <Container>
-                    <Form onSubmit={this.handler}>
+                    <Form onSubmit={this.handleSubmit}>
 
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
@@ -106,19 +78,19 @@ class Create extends Component {
                                 <Row sm={10} >
 
                                     <Form.Check
-                                    type="radio"
-                                    label="Active"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios1"
-                                    style={{marginLeft:15,marginRight: 15}}
+                                        type="radio"
+                                        label="Active"
+                                        name="formHorizontalRadios"
+                                        id="formHorizontalRadios1"
+                                        style={{marginLeft:15,marginRight: 15}}
                                     />
 
                                     <Form.Check
-                                    type="radio"
-                                    label="Not Active"
-                                    name="formHorizontalRadios"
-                                    id="formHorizontalRadios2"
-                                    style={{marginLeft:15,marginRight: 15}}
+                                        type="radio"
+                                        label="Not Active"
+                                        name="formHorizontalRadios"
+                                        id="formHorizontalRadios2"
+                                        style={{marginLeft:15,marginRight: 15}}
                                     />
                                 </Row>
                             
