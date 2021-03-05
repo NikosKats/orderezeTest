@@ -7,6 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom'
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import axios from 'axios'
+
 
 const useStyles = makeStyles({
   root: {
@@ -17,8 +21,42 @@ const useStyles = makeStyles({
   },
 });
 
+const api = axios.create({
+  baseURL: 'https://pagesmanagement.azurewebsites.net/'
+})
+
+
+
+
 export default function MediaCard(props) {
   const classes = useStyles();
+    
+  // 
+
+  function sayHello() {
+
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure you want to delete this page?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            api.delete('api/ResponsivePages/'+props.id);
+            
+          }
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
+    
+
+    //
+  }
+
+  
 
   return (
 
@@ -29,6 +67,7 @@ export default function MediaCard(props) {
             <Typography gutterBottom variant="h5" component="h2">
               {props.title} 
             </Typography>
+
             <Typography variant="body2" color="textSecondary" component="p">
               {props.description}
               <br/>
@@ -38,17 +77,14 @@ export default function MediaCard(props) {
               <br/>
               {props.active}
             </Typography>
+
           </CardContent>
         </CardActionArea>
         <CardActions>
 
-            
-
-
-
             <Link to={'/edit/'+props.id} > Edit  </Link>
 
-            <Link to="/delete" > Delete  </Link>
+            <Button  onClick={sayHello}>Delete</Button>
 
         </CardActions>
       </Card>                        
