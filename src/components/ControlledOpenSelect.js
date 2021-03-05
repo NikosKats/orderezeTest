@@ -18,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ControlledOpenSelect() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [type, setType] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setType(event.target.value);
   };
 
   const handleClose = () => {
@@ -43,7 +43,7 @@ export default function ControlledOpenSelect() {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
+          value={type}
           onChange={handleChange}
         >
           <MenuItem value={0}>Menu</MenuItem>
