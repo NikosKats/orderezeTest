@@ -7,7 +7,7 @@ import ControlledOpenSelect from './ControlledOpenSelect'
 
 const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
-  })
+})
 
 
 

@@ -29,7 +29,7 @@ export default function ButtonAppBar(props) {
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <Button color="inherit">Logout</Button> */}
-            <Link to="/" style={{ color: '#FFF',textDecoration: 'none' }}> <MenuIcon /> </Link>
+            <Link to="/view" style={{ color: '#FFF',textDecoration: 'none' }}> <MenuIcon /> </Link>
 
           </IconButton>
           <Typography variant="h6" className={classes.title}>
