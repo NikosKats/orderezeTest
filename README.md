@@ -1,3 +1,23 @@
+# Ordereze Interview Test
+
+1. Create - Create new page
+
+<img width="1440" alt="Create" src="https://user-images.githubusercontent.com/26749680/110171084-d47e9800-7e03-11eb-9e1a-24b87cedac4f.png">
+
+2. Read - View all pages saved on the database
+
+<img width="1440" alt="Read" src="https://user-images.githubusercontent.com/26749680/110171198-11e32580-7e04-11eb-9039-95349d182186.png">
+
+3. Update - Update an existing page
+
+<img width="1440" alt="Update" src="https://user-images.githubusercontent.com/26749680/110171239-1f98ab00-7e04-11eb-9020-3fda39528cb8.png">
+
+4. Delete - delete a certain page
+
+<img width="1440" alt="Delete" src="https://user-images.githubusercontent.com/26749680/110171257-27f0e600-7e04-11eb-8cae-905405e5e7ec.png">
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
