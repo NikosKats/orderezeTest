@@ -40,7 +40,7 @@ class Edit extends Component {
         return(
             <div>
                 
-                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page {this.state.id}</h1>
+                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page '{this.state.pages.title}'</h1>
                 <Container>
                     <Form>
 
