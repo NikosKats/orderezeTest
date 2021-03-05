@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import {Container, Form, Row, Col, Button} from 'react-bootstrap'
 import ControlledOpenSelect from './ControlledOpenSelect'
-import { ControlCameraOutlined } from "@material-ui/icons";
 import moment from 'moment'
 import {Alert} from 'react-bootstrap'
 
@@ -25,23 +24,18 @@ class Create extends Component {
             isActive: true,
             published: moment(Date()).format()
 
-        }
-
+        } 
         
     }
 
 
     handleInputChange = (event) => {
         event.preventDefault();
-        console.log(event);
-        console.log(event.target.name);
-        console.log(event.target.value);
-
         this.setState({
             [event.target.name]: event.target.value
         })
 
-        console.log(this.state)
+        
     }
 
     handleSubmit = event => {
@@ -56,9 +50,9 @@ class Create extends Component {
         const data = {
             title: "niko",
             description: "nikos",
-            type: 2,
-            isActive: "true",
-            published: "2021-03-05T10:09:19.8029347+00:00"
+            type: this.type,
+            isActive: false,
+            published: moment(Date()).format()
         };
 
         api.post('api/ResponsivePages', this.state,options)
@@ -91,7 +85,7 @@ class Create extends Component {
 
     render(){
 
-        const { title, description, type, isActive} = this.state;
+        const { title, description, isActive} = this.state;
 
 
         return(
