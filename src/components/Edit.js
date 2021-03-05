@@ -37,9 +37,6 @@ class Edit extends Component {
 
     handleInputChange = (event) => {
         event.preventDefault();
-        console.log(event);
-        console.log(event.target.name);
-        console.log(event.target.value);
 
         this.setState({
             [event.target.name]: event.target.value
@@ -59,7 +56,7 @@ class Edit extends Component {
             published: moment(Date()).format()
         };
 
-        api.put('api/ResponsivePages/'+this.state.id, data)
+        api.put('api/ResponsivePages/'+this.state.id, this.state)
         .then(response => {
             console.log(response)
         })

@@ -7,7 +7,6 @@ import moment from 'moment'
 import {Alert} from 'react-bootstrap'
 
 
-
 const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
 })
@@ -25,7 +24,7 @@ class Create extends Component {
             published: moment(Date()).format()
 
         } 
-        
+   
     }
 
 
@@ -42,20 +41,13 @@ class Create extends Component {
         event.preventDefault();
     
         console.log(this.state)
+        console.log(this.type)
 
         const options = {
             headers: {'X-Custom-Header': 'value'}
         };
 
-        const data = {
-            title: "niko",
-            description: "nikos",
-            type: this.type,
-            isActive: false,
-            published: moment(Date()).format()
-        };
-
-        api.post('api/ResponsivePages', this.state,options)
+        api.post('api/ResponsivePages', this.state, options)
         .then(response => {
             console.log(response.status)
 
