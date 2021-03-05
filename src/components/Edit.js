@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import {Container, Form, Row, Col, Button} from 'react-bootstrap'
 import ControlledOpenSelect from './ControlledOpenSelect'
-
+import moment from 'moment'
 
 const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
@@ -35,14 +35,44 @@ class Edit extends Component {
         })
     }
 
+    handleInputChange = (event) => {
+        event.preventDefault();
+        console.log(event);
+        console.log(event.target.name);
+        console.log(event.target.value);
+
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     update = event => {
         event.preventDefault();
 
         console.log(this.state)
+
+        const data = {
+            title: "null",
+            description: "null",
+            type: 2,
+            isActive: true,
+            published: moment(Date()).format()
+        };
+
+        api.put('api/ResponsivePages/'+this.state.id, data)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error.response)
+        })
+
     }
 
     render(){
-        
+
+        const { title, description, type, isActive} = this.state
+
         return(
             <div>
                 
@@ -53,11 +83,11 @@ class Edit extends Component {
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
                                 <Form.Label>Title</Form.Label>
-                                <Form.Control placeholder={this.state.pages.title} />
+                                <Form.Control placeholder={this.state.pages.title} name="title" value={title} onChange = {this.handleInputChange} />
                             </Col>
                             <Col>
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control placeholder={this.state.pages.description} />
+                                <Form.Control placeholder={this.state.pages.description} name="description" value={description}  onChange = {this.handleInputChange} />
                             </Col>
                         </Row>
 
