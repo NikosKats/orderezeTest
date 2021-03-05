@@ -5,6 +5,7 @@ import {Container, Form, Row, Col, Button} from 'react-bootstrap'
 import ControlledOpenSelect from './ControlledOpenSelect'
 import { ControlCameraOutlined } from "@material-ui/icons";
 import moment from 'moment'
+import {Alert} from 'react-bootstrap'
 
 
 
@@ -39,6 +40,8 @@ class Create extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+
+        console.log(this.state)
     }
 
     handleSubmit = event => {
@@ -46,20 +49,33 @@ class Create extends Component {
     
         console.log(this.state)
 
-        const data = {
-            title: "null",
-            description: "null",
-            type: 2,
-            isActive: true,
-            published: moment(Date()).format()
+        const options = {
+            headers: {'X-Custom-Header': 'value'}
         };
 
-        api.post('api/ResponsivePages', data)
+        const data = {
+            title: "niko",
+            description: "nikos",
+            type: 2,
+            isActive: "true",
+            published: "2021-03-05T10:09:19.8029347+00:00"
+        };
+
+        api.post('api/ResponsivePages', this.state,options)
         .then(response => {
-            console.log(response)
+            console.log(response.status)
+
+            if(response.status == 201){
+                alert("success")
+            }
         })
         .catch(error => {
             console.log(error.response)
+
+            if(error.response.status >= 400){
+                alert(error.response.statusText + " " + error.response.status)
+            }
+
         })
 
     }
@@ -75,7 +91,8 @@ class Create extends Component {
 
     render(){
 
-        const { title, description, type, isActive} = this.state
+        const { title, description, type, isActive} = this.state;
+
 
         return(
             <div>
@@ -139,7 +156,14 @@ class Create extends Component {
                         </Button>
 
                     </Form>
+
+                    <Alert variant='success' style={{marginTop:30}} >
+                        This is a  alert—check it out!
+                    </Alert>
+
                 </Container>
+
+                
             </div>
     )}
 }
