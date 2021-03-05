@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios'
-
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -30,8 +30,7 @@ const api = axios.create({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-    
-  // 
+  const history = useHistory();
 
   function sayHello() {
 
@@ -52,16 +51,15 @@ export default function MediaCard(props) {
       ]
     });
     
-
-    //
   }
 
+  const edit = () => history.push('/edit/'+props.id);
   
 
   return (
 
       <Card className={classes.root}  style={{marginTop:15,marginBottom: 15}}>
-        <CardActionArea>
+        <CardActionArea  onClick={edit}>
           <CardContent>
             
             <Typography gutterBottom variant="h5" component="h2">

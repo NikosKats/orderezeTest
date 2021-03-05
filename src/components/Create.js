@@ -25,6 +25,8 @@ class Create extends Component {
             published: moment(Date()).format()
 
         }
+
+        
     }
 
 
@@ -44,19 +46,20 @@ class Create extends Component {
     
         console.log(this.state)
 
-        api.post('api/ResponsivePages',{
-            title: 'test react',
-            description: 'test from axios',
+        const data = {
+            title: "null",
+            description: "null",
             type: 2,
             isActive: true,
             published: moment(Date()).format()
+        };
 
-        })
+        api.post('api/ResponsivePages', data)
         .then(response => {
             console.log(response)
         })
         .catch(error => {
-            console.log(error)
+            console.log(error.response)
         })
 
     }

@@ -35,7 +35,7 @@ class View extends Component {
                 
                 <div className="App">
                     
-                        {this.state.pages.map( pages =>  { return (
+                    {this.state.pages.map( pages =>  { return (
                             <div>
                                 <Container>
                                     <Row>
@@ -54,6 +54,7 @@ class View extends Component {
                             </div>
                         )}
                     )}
+
                 </div>
             
         );
