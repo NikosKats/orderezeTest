@@ -6,7 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: {
@@ -40,15 +40,13 @@ export default function MediaCard(props) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Create 
-          </Button>
-          <Button size="small" color="primary">
-            Edit 
-          </Button>
-          <Button size="small" color="primary">
-            Delete 
-          </Button>
+
+            <Link to="/create" > Create  </Link>
+
+            <Link to="/edit" > Edit  </Link>
+
+            <Link to="/delete" > Delete  </Link>
+
         </CardActions>
       </Card>                        
       

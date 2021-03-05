@@ -10,7 +10,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 ReactDOM.render(
     <Router>
         <Route path="/" component={Welcome}/>
-        <Route path="/home" component={View} />
+        <Route path="/view" component={View} />
         <Route path="/create" component={Create} />
         <Route path="/edit" component={Edit} /> 
     </Router>
