@@ -28,7 +28,7 @@ export default function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-
+            {/* <Button color="inherit">Logout</Button> */}
             <Link to="/" style={{ color: '#FFF',textDecoration: 'none' }}> <MenuIcon /> </Link>
 
           </IconButton>
@@ -37,7 +37,8 @@ export default function ButtonAppBar(props) {
             <Link to="/view" style={{ color: '#FFF',textDecoration: 'none' }}> {props.title} </Link>
 
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Link to="/create" style={{ color: '#FFF',textDecoration: 'none' }}> Create New Page </Link>
+          
         </Toolbar>
       </AppBar>
     </div>

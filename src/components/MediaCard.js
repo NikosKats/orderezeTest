@@ -44,7 +44,7 @@ export default function MediaCard(props) {
 
             
 
-            <Link to="/create" > Create  </Link>
+
 
             <Link to={'/edit/'+props.id} > Edit  </Link>
 
