@@ -4,6 +4,8 @@ import axios from 'axios'
 import {Container, Form, Row, Col, Button} from 'react-bootstrap'
 import ControlledOpenSelect from './ControlledOpenSelect'
 import { ControlCameraOutlined } from "@material-ui/icons";
+import moment from 'moment'
+
 
 
 const api = axios.create({
@@ -18,9 +20,9 @@ class Create extends Component {
         this.state = {
             title: '',
             description: '',
-            type: null,
-            isActive: null,
-            published: Date().toLocaleString()
+            type: 0,
+            isActive: true,
+            published: moment(Date()).format()
 
         }
     }
@@ -41,6 +43,21 @@ class Create extends Component {
         event.preventDefault();
     
         console.log(this.state)
+
+        api.post('api/ResponsivePages',{
+            title: 'test react',
+            description: 'test from axios',
+            type: 2,
+            isActive: true,
+            published: moment(Date()).format()
+
+        })
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
 
     }
     
@@ -101,7 +118,7 @@ class Create extends Component {
                         <Row>
                             <Col>
                                 <Form.Label>Published</Form.Label>
-                                <Form.Control placeholder={Date().toLocaleString()} disabled/>
+                                <Form.Control placeholder={moment(Date()).format()} disabled/>
                             </Col>
                         </Row>
 
