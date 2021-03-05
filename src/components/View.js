@@ -10,7 +10,7 @@ const api = axios.create({
   })
   
 
-class App extends Component {
+class View extends Component {
 
     state = {
         pages: []
@@ -64,4 +64,4 @@ class App extends Component {
    
 }
 
-export default App;
+export default View;
