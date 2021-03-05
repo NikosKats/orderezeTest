@@ -32,12 +32,8 @@ class View extends Component {
 
     render(){
         return(
-
-            
+   
                 <div className="App">
-
-                        
-                        
                         {this.state.pages.map( pages =>  { return (
                             <div>
                                 <Container>

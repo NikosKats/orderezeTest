@@ -12,7 +12,7 @@ class Welcome extends Component {
     render(){
         return(
             <div>
-                <AppBar title="Dashboard"/>
+                <AppBar title="All Pages"/>
             </div>
     )}
 }
