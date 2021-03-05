@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import {Container, Form, Row, Col} from 'react-bootstrap'
+import ControlledOpenSelect from './ControlledOpenSelect'
 
 class Create extends Component {
 
@@ -18,23 +19,23 @@ class Create extends Component {
 
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control placeholder="First name" />
+                                <Form.Label>Title</Form.Label>
+                                <Form.Control placeholder="Title" />
                             </Col>
                             <Col>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control placeholder="Last name" />
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control placeholder="Description" />
                             </Col>
                         </Row>
 
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control placeholder="First name" />
+                                <Form.Label>Page Type</Form.Label>
+                                <ControlledOpenSelect/>
                             </Col>
                             <Col>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control placeholder="Last name" />
+                                <Form.Label>Published</Form.Label>
+                                <Form.Control placeholder="Published" disabled />
                             </Col>
                         </Row>
                     </Form>
