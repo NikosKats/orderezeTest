@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import MediaCard from './MediaCard'
 import {Container,Row, Col} from 'react-bootstrap'
-import { ThreeSixty } from "@material-ui/icons";
+
 
 const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
@@ -32,31 +32,33 @@ class App extends Component {
 
     render(){
         return(
-            <div className="App">
 
-                {this.state.pages.map( pages =>  { return (
-                    <div>
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <MediaCard 
-                                        key = {pages.id}
-                                        title = {pages.title} 
-                                        description = {pages.description} 
-                                        published = {pages.publishedOn} 
-                                        type = {pages.type} 
-                                        active = {pages.isActive} 
-                                    />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
-                )}
-                
-            )}
-                
+            
+                <div className="App">
 
-            </div>
+                        
+                        
+                        {this.state.pages.map( pages =>  { return (
+                            <div>
+                                <Container>
+                                    <Row>
+                                        <Col>
+                                            <MediaCard 
+                                                key = {pages.id}
+                                                title = {pages.title} 
+                                                description = {pages.description} 
+                                                published = {pages.publishedOn} 
+                                                type = {pages.type} 
+                                                active = {pages.isActive} 
+                                            />
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </div>
+                        )}
+                    )}
+                </div>
+            
         );
     }
    

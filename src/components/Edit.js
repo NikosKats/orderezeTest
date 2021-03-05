@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
-class Create extends Component {
+class Edit extends Component {
 
     constructor(){
         super();
@@ -11,9 +11,9 @@ class Create extends Component {
     render(){
         return(
             <div>
-                Hello from Create
+                Hello from Edit
             </div>
     )}
 }
 
-export default Create;
+export default Edit;
