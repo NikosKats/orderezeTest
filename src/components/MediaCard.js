@@ -25,8 +25,9 @@ export default function MediaCard(props) {
       <Card className={classes.root}  style={{marginTop:15,marginBottom: 15}}>
         <CardActionArea>
           <CardContent>
+            
             <Typography gutterBottom variant="h5" component="h2">
-              {props.title}
+              {props.title} 
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {props.description}
@@ -41,9 +42,11 @@ export default function MediaCard(props) {
         </CardActionArea>
         <CardActions>
 
+            
+
             <Link to="/create" > Create  </Link>
 
-            <Link to="/edit" > Edit  </Link>
+            <Link to={'/edit/'+props.id} > Edit  </Link>
 
             <Link to="/delete" > Delete  </Link>
 

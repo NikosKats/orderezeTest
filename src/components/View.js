@@ -29,10 +29,10 @@ class View extends Component {
             count: data.length
         })
     }
-
+    
     render(){
         return(
-   
+                
                 <div className="App">
                         {this.state.pages.map( pages =>  { return (
                             <div>
@@ -40,7 +40,7 @@ class View extends Component {
                                     <Row>
                                         <Col>
                                             <MediaCard 
-                                                key = {pages.id}
+                                                id = {pages.id}
                                                 title = {pages.title} 
                                                 description = {pages.description} 
                                                 published = {pages.publishedOn} 

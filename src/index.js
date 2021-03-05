@@ -12,7 +12,7 @@ ReactDOM.render(
         <Route path="/" component={Welcome}/>
         <Route path="/view" component={View} />
         <Route path="/create" component={Create} />
-        <Route path="/edit" component={Edit} /> 
+        <Route path="/edit/:id" component={Edit} /> 
     </Router>
   ,
   document.querySelector('#root')

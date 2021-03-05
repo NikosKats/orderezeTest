@@ -9,20 +9,25 @@ const api = axios.create({
     baseURL: 'https://pagesmanagement.azurewebsites.net/'
   })
 
+
+
 class Edit extends Component {
 
     state = {
-        pages: []
+        pages: [],
+        id: this.props.match.params.id
+    }
+
+    constructor(props){
+        super(props);
+        this.getPages();
         
     }
 
-    constructor(){
-        super();
-        this.getPages();
-    }
+    
 
     getPages = async () => {
-        let data = await api.get('/api/ResponsivePages/'+'3208').then(({ data }) => data);
+        let data = await api.get('/api/ResponsivePages/'+this.state.id).then(({ data }) => data);
         
         this.setState({ 
             pages: data,
@@ -31,9 +36,11 @@ class Edit extends Component {
     }
 
     render(){
+        
         return(
             <div>
-                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page</h1>
+                
+                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page {this.state.id}</h1>
                 <Container>
                     <Form>
 
