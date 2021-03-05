@@ -35,6 +35,12 @@ class Edit extends Component {
         })
     }
 
+    update = event => {
+        event.preventDefault();
+
+        console.log(this.state)
+    }
+
     render(){
         
         return(
@@ -42,7 +48,7 @@ class Edit extends Component {
                 
                 <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page '{this.state.pages.title}'</h1>
                 <Container>
-                    <Form>
+                    <Form onSubmit={this.update}>
 
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
@@ -95,7 +101,7 @@ class Edit extends Component {
                             </Col>
                         </Row>
 
-                        <Button variant="primary" size="lg" block style={{marginTop:30}}>
+                        <Button type="submit" variant="primary" size="lg" block style={{marginTop:30}}>
                             Update Page
                         </Button>
 

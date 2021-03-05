@@ -64,7 +64,14 @@ class Create extends Component {
 
     }
     
-    
+    handleChange(e){
+        let isChecked = e.target.checked;
+        let name = e.target.name;
+
+        console.log(isChecked)
+        console.log(name)
+    }
+
 
     render(){
 
@@ -100,17 +107,19 @@ class Create extends Component {
                                     <Form.Check
                                         type="radio"
                                         label="Active"
-                                        name="formHorizontalRadios"
+                                        name="active"
                                         id="formHorizontalRadios1"
                                         style={{marginLeft:15,marginRight: 15}}
+                                        onChange={e => this.handleChange(e)} 
                                     />
 
                                     <Form.Check
                                         type="radio"
                                         label="Not Active"
-                                        name="formHorizontalRadios"
+                                        name="active"
                                         id="formHorizontalRadios2"
                                         style={{marginLeft:15,marginRight: 15}}
+                                        onChange={e => this.handleChange(e)}
                                     />
                                 </Row>
                             
