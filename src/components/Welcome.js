@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
+import AppBar from './AppBar'
 
 class Welcome extends Component {
 
@@ -11,7 +12,7 @@ class Welcome extends Component {
     render(){
         return(
             <div>
-                Hello from Welcome
+                <AppBar title="Dashboard"/>
             </div>
     )}
 }
