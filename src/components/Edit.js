@@ -92,6 +92,14 @@ class Edit extends Component {
 
     }
 
+    handleChange(e){
+        let isChecked = e.target.checked;
+        let name = e.target.name;
+
+        console.log(isChecked)
+        console.log(name)
+    }
+
     render(){
 
         const { title, description, type, isActive} = this.state
@@ -127,19 +135,21 @@ class Edit extends Component {
                                     <Form.Check
                                         type="radio"
                                         label="Active"
-                                        name="formHorizontalRadios"
+                                        name="active"
                                         id="formHorizontalRadios1"
                                         style={{marginLeft:15,marginRight: 15}}
                                         checked = {this.state.isActive}
+                                        onChange={e => this.handleChange(e)} 
                                     />
 
                                     <Form.Check
                                         type="radio"
                                         label="Not Active"
-                                        name="formHorizontalRadios"
+                                        name="inActive"
                                         id="formHorizontalRadios2"
                                         style={{marginLeft:15,marginRight: 15}}
                                         checked = {this.state.isActive}
+                                        onChange={e => this.handleChange(e)} 
                                     />
                                 </Row>
                             
