@@ -53,15 +53,24 @@ class Edit extends Component {
             description: "null",
             type: 2,
             isActive: true,
-            published: moment(Date()).format()
+            publishedOn: moment(Date()).format()
         };
 
         api.put('api/ResponsivePages/'+this.state.id, this.state)
         .then(response => {
-            console.log(response)
+            console.log(response.status)
+
+            if(response.status == 201){
+                alert("success")
+            }
         })
         .catch(error => {
             console.log(error.response)
+
+            if(error.response.status >= 400){
+                alert(error.response.statusText + " " + error.response.status)
+            }
+
         })
 
     }

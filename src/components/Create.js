@@ -146,9 +146,9 @@ class Create extends Component {
 
                     </Form>
 
-                    <Alert variant='success' style={{marginTop:30}} >
+                    {/* <Alert variant='success' style={{marginTop:30}} >
                         Page created successfully!
-                    </Alert>
+                    </Alert> */}
 
                 </Container>
 
