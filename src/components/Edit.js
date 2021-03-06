@@ -14,8 +14,12 @@ const api = axios.create({
 class Edit extends Component {
 
     state = {
-        pages: [],
-        id: this.props.match.params.id
+        id: this.props.match.params.id,
+        title: '',
+        description: '',
+        type: 0,
+        isActive: false,
+        publishedOn: moment(Date()).format()
     }
 
     constructor(props){
@@ -25,16 +29,6 @@ class Edit extends Component {
     }
 
     
-
-    getPages = async () => {
-        let data = await api.get('/api/ResponsivePages/'+this.state.id).then(({ data }) => data);
-        
-        this.setState({ 
-            pages: data,
-            count: data.length
-        })
-    }
-
     handleInputChange = (event) => {
         event.preventDefault();
 
@@ -43,24 +37,47 @@ class Edit extends Component {
         })
     }
 
+    getPages = async () => {
+        
+        api.get('/api/ResponsivePages/'+this.state.id)
+        .then(response => {
+            if(response.data != null){
+                this.setState({
+                    id: response.data.id,
+                    title: response.data.title,
+                    description: response.data.description,
+                    type: response.data.type,
+                    isActive: response.data.isActive,
+                    publishedOn: response.data.publishedOn
+                });
+            }
+        }).catch((error) => {
+            console.error("Error . " + error);
+        });
+
+      
+    }
+
+
     update = event => {
         event.preventDefault();
 
         console.log(this.state)
 
-        const data = {
-            title: "null",
-            description: "null",
-            type: 2,
-            isActive: true,
-            publishedOn: moment(Date()).format()
-        };
+        const pages = {
+            id: this.state.id,
+            title: this.state.title,
+            description: this.state.description,
+            type: this.state.type,
+            isActive: this.state.isActive,
+            publishedOn: this.state.publishedOn
+        }
 
-        api.put('api/ResponsivePages/'+this.state.id, this.state)
+        api.put('api/ResponsivePages/'+this.state.id, pages)
         .then(response => {
             console.log(response.status)
 
-            if(response.status == 201){
+            if(response.status == 200){
                 alert("success")
             }
         })
@@ -82,18 +99,18 @@ class Edit extends Component {
         return(
             <div>
                 
-                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page '{this.state.pages.title}'</h1>
+                <h1 className="text-center" style={{marginTop:15,marginBottom: 15}}>Edit Page '{this.state.title}'</h1>
                 <Container>
                     <Form onSubmit={this.update}>
 
                         <Row style={{marginTop:15,marginBottom: 15}}>
                             <Col>
                                 <Form.Label>Title</Form.Label>
-                                <Form.Control placeholder={this.state.pages.title} name="title" value={title} onChange = {this.handleInputChange} />
+                                <Form.Control placeholder={this.state.title} name="title" value={title} onChange = {this.handleInputChange} />
                             </Col>
                             <Col>
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control placeholder={this.state.pages.description} name="description" value={description}  onChange = {this.handleInputChange} />
+                                <Form.Control placeholder={this.state.description} name="description" value={description}  onChange = {this.handleInputChange} />
                             </Col>
                         </Row>
 
@@ -113,7 +130,7 @@ class Edit extends Component {
                                         name="formHorizontalRadios"
                                         id="formHorizontalRadios1"
                                         style={{marginLeft:15,marginRight: 15}}
-                                        checked = {this.state.pages.isActive}
+                                        checked = {this.state.isActive}
                                     />
 
                                     <Form.Check
@@ -122,7 +139,7 @@ class Edit extends Component {
                                         name="formHorizontalRadios"
                                         id="formHorizontalRadios2"
                                         style={{marginLeft:15,marginRight: 15}}
-                                        checked = {this.state.pages.isActive}
+                                        checked = {this.state.isActive}
                                     />
                                 </Row>
                             
@@ -133,7 +150,7 @@ class Edit extends Component {
                         <Row>
                             <Col>
                                 <Form.Label>Published</Form.Label>
-                                <Form.Control placeholder={this.state.pages.publishedOn} disabled/>
+                                <Form.Control placeholder={this.state.publishedOn} disabled/>
                             </Col>
                         </Row>
 
