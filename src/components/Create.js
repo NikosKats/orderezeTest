@@ -13,6 +13,8 @@ const api = axios.create({
 
 class Create extends Component {
 
+    
+
     constructor(){
         super();
 
@@ -21,7 +23,7 @@ class Create extends Component {
             description: '',
             type: 0,
             isActive: false,
-            published: moment(Date()).format()
+            publishedOn: moment(Date()).format()
 
         } 
    
